@@ -17,6 +17,11 @@ public class Medico
         this.senha = senha;
     }
 
+    public Medico()
+    {
+        
+    }
+
     public void acessar(String senha)
     {
         MetodosComuns.acessar(senha);

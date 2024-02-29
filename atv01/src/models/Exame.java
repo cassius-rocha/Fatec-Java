@@ -12,6 +12,11 @@ public class Exame {
         this.descritivo = descritivo;
     }
 
+    public Exame()
+    {
+        
+    }
+
     public void solicitar()
     {
 

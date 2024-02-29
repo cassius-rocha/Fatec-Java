@@ -11,6 +11,11 @@ public class Receita {
         this.data = data;
         this.descritivo = descritivo;
     }
+
+    public Receita()
+    {
+        
+    }
     
     public void preescrever()
     {

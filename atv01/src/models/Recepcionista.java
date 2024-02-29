@@ -15,6 +15,11 @@ public class Recepcionista
         this.senha = senha;
     }
 
+    public Recepcionista()
+    {
+        
+    }
+
     public void acessar(String senha)
     {
         MetodosComuns.acessar(senha);

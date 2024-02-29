@@ -19,6 +19,11 @@ public class Consulta {
         this.historico = historico;
     }
 
+    public Consulta()
+    {
+        
+    }
+
     public void marcar()
     {
 

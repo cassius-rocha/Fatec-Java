@@ -14,6 +14,11 @@ public class Agenda {
         this.paciente = paciente;
     }
 
+    public Agenda()
+    {
+        
+    }
+
     public void consultarAgenda(String data)
     {
         MetodosComuns.consultar(data);
