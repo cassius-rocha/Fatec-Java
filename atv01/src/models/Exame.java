@@ -27,9 +27,6 @@ public class Exame {
         MetodosComuns.consultar(data);
     }
 
-    /**
-     * @return String return the consulta
-     */
     public String getConsulta() {
         return consulta;
     }
