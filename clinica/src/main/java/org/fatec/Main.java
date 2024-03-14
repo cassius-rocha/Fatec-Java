@@ -10,7 +10,7 @@ public class Main {
             p1.setTelefone("2345-2344");
             p1.setNome("maria da silva");
             p1.setCodigo(1);
-            p1.setIdade(3);
+            p1.setIdade(20);
             p1.mostrar();
         } catch(Exception err){
             System.out.println(err.getMessage());

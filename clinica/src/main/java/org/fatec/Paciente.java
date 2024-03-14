@@ -53,7 +53,7 @@ public class Paciente {
     }
 
     public void setIdade(int idade) throws Exception{
-       if(idade>=10 && idade<80){
+       if(idade<10 || idade>80){
            throw new Exception("Idade invalida, deve ser entre 10 e 80");
        } else {
            this.idade = idade;

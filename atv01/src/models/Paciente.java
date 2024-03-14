@@ -14,17 +14,19 @@ public class Paciente
         setCpf("");
         setTelefone("");
         setGenero("");
-        setIdade(0);
+        setIdade(10);
         setCodigo(0);
     }
 
-    public static Paciente cadastrarPaciente(String nome, String cpf, String telefone, String genero, int idade) throws Exception {
+    public static Paciente cadastrarPaciente(String nome, String cpf, String telefone,
+                                             String genero, int idade, int codigo) throws Exception {
         Paciente novoPaciente = new Paciente();
         novoPaciente.setNome(nome);
         novoPaciente.setCpf(cpf);
         novoPaciente.setTelefone(telefone);
-        novoPaciente.setGenero(String.valueOf(genero));
+        novoPaciente.setGenero(genero);
         novoPaciente.setIdade(idade);
+        novoPaciente.setCodigo(codigo);
         return novoPaciente;
     }
 
@@ -82,7 +84,7 @@ public class Paciente
 
     public void setIdade(int idade) throws Exception {
         if(idade < 10 || idade > 80){
-            throw new Exception(("Idade inválida, deve ser entre 10 e 80."));
+            throw new Exception("Idade inválida, deve ser entre 10 e 80.");
         } else {
             this.idade = idade;
         }
@@ -98,5 +100,14 @@ public class Paciente
             System.out.println("Informe o código do paciente.");
             this.codigo = 0;
         }
+    }
+
+    public void mostrar(){
+        System.out.println(">>>>>>>>>>Paciente<<<<<<<<<<<");
+        System.out.println("codigo:"+ getCodigo());
+        System.out.println("nome:"+ getNome());
+        System.out.println("idade:"+ getIdade());
+        System.out.println("genero:"+ getGenero());
+        System.out.println("telefone:"+ getTelefone());
     }
 }
