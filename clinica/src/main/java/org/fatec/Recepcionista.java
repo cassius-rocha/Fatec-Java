@@ -1,28 +1,17 @@
-package models;
+package org.fatec;
 
-public class Recepcionista 
-{
+public class Recepcionista {
     private String nome;
     private String cpf;
     private String telefone;
     private String senha;
-    
-    public Recepcionista(String nome, String cpf, String telefone, String senha)
-    {
+
+    public Recepcionista(){}
+    public Recepcionista(String nome, String cpf, String telefone, String senha) {
         setNome(nome);
         setCpf(cpf);
         setTelefone(telefone);
         setSenha(senha);
-    }
-
-    public Recepcionista()
-    {
-        
-    }
-
-    public void acessar(String senha)
-    {
-        MetodosComuns.acessar(senha);
     }
 
     public String getNome() {
@@ -50,7 +39,7 @@ public class Recepcionista
     }
 
     public String getSenha() {
-        return senha;
+        return "*********";
     }
 
     public void setSenha(String senha) {

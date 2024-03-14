@@ -1,32 +1,17 @@
-package models;
+package org.fatec;
 
 import java.time.LocalDate;
 
-public class Receita {
+public class Exame {
     private String consulta;
     private LocalDate data;
     private String descritivo;
 
-    public Receita(String consulta, LocalDate data, String descritivo)
-    {
+    public Exame(){}
+    public Exame(String consulta, LocalDate data, String descritivo) {
         setConsulta(consulta);
         setData(data);
         setDescritivo(descritivo);
-    }
-
-    public Receita()
-    {
-        
-    }
-    
-    public void preescrever()
-    {
-
-    }
-
-    public void consultarReceita(String data)
-    {
-        MetodosComuns.consultar(data);
     }
 
     public String getConsulta() {

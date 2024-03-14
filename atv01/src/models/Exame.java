@@ -1,15 +1,17 @@
 package models;
 
+import java.time.LocalDate;
+
 public class Exame {
     private String consulta;
-    private String data;
+    private LocalDate data;
     private String descritivo;
 
-    public Exame(String consulta, String data, String descritivo)
+    public Exame(String consulta, LocalDate data, String descritivo)
     {
-        this.consulta = consulta;
-        this.data = data;
-        this.descritivo = descritivo;
+        setConsulta(consulta);
+        setData(data);
+        setDescritivo(descritivo);
     }
 
     public Exame()
@@ -35,11 +37,11 @@ public class Exame {
         this.consulta = consulta;
     }
 
-    public String getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
 

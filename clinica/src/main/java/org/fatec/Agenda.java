@@ -1,4 +1,4 @@
-package models;
+package org.fatec;
 
 import java.time.LocalDate;
 
@@ -8,25 +8,20 @@ public class Agenda {
     private Medico medico;
     private Paciente paciente;
 
-    public Agenda(LocalDate data, String hora, Medico medico, Paciente paciente)
-    {
+
+
+    public Agenda(){};
+
+    public Agenda(LocalDate data, String hora, Medico medico, Paciente paciente) {
         setData(data);
         setHora(hora);
         setMedico(medico);
         setPaciente(paciente);
     }
 
-    public Agenda()
-    {
-        
+    public LocalDate getData() {
+        return data;
     }
-
-    public void consultarAgenda(String data)
-    {
-        MetodosComuns.consultar(data);
-    }
-
-    public LocalDate getData() { return  data; }
 
     public void setData(LocalDate data) {
         this.data = data;

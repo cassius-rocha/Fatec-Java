@@ -1,22 +1,25 @@
 package models;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 public class Consulta {
-    private String data;
+    private LocalDate data;
     private String hora;
-    private String medico;
-    private String paciente;
+    private Medico medico;
+    private Paciente paciente;
     private String motivo;
     private String historico;
 
-    public Consulta(String data, String hora, String medico, 
-                    String paciente, String motivo, String historico)
+    public Consulta(LocalDate data, String hora, Medico medico,
+                    Paciente paciente, String motivo, String historico)
     {
-        this.data = data;
-        this.hora = hora;
-        this.medico = medico;
-        this.paciente = paciente;
-        this.motivo = motivo;
-        this.historico = historico;
+        setData(data);
+        setHora(hora);
+        setMedico(medico);
+        setPaciente(paciente);
+        setMotivo(motivo);
+        setHistorico(historico);
     }
 
     public Consulta()
@@ -49,11 +52,11 @@ public class Consulta {
 
     }
 
-    public String getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
 
@@ -65,19 +68,19 @@ public class Consulta {
         this.hora = hora;
     }
 
-    public String getMedico() {
+    public Medico getMedico() {
         return medico;
     }
 
-    public void setMedico(String medico) {
+    public void setMedico(Medico medico) {
         this.medico = medico;
     }
 
-    public String getPaciente() {
+    public Paciente getPaciente() {
         return paciente;
     }
 
-    public void setPaciente(String paciente) {
+    public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
     }
 

@@ -1,30 +1,21 @@
-package models;
+package org.fatec;
 
-public class Medico 
-{
+public class Medico {
     private String nome;
     private String crm;
     private String telefone;
     private String especialidade;
-    private String senha;   
+    private String senha;
 
-    public Medico(String nome, String crm, String telefone, String especialidade, String senha)
-    {
+    public Medico(){
+
+    }
+    public Medico(String nome, String crm, String telefone, String especialidade, String senha) {
         setNome(nome);
         setCrm(crm);
         setTelefone(telefone);
         setEspecialidade(especialidade);
         setSenha(senha);
-    }
-
-    public Medico()
-    {
-        
-    }
-
-    public void acessar(String senha)
-    {
-        MetodosComuns.acessar(senha);
     }
 
     public String getNome() {
@@ -60,7 +51,7 @@ public class Medico
     }
 
     public String getSenha() {
-        return senha;
+        return "************";
     }
 
     public void setSenha(String senha) {
