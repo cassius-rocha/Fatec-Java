@@ -8,7 +8,7 @@ public class Agenda {
     private Medico medico;
     private Paciente paciente;
 
-    public Agenda(LocalDate data, String hora, Medico medico, Paciente paciente)
+    public Agenda(LocalDate data, String hora, Medico medico, Paciente paciente) throws Exception
     {
         setData(data);
         setHora(hora);
@@ -16,10 +16,7 @@ public class Agenda {
         setPaciente(paciente);
     }
 
-    public Agenda()
-    {
-        
-    }
+
 
     public void consultarAgenda(String data)
     {
@@ -44,8 +41,11 @@ public class Agenda {
         return medico;
     }
 
-    public void setMedico(Medico medico) {
-        this.medico = medico;
+    public void setMedico(Medico medico) throws Exception {
+        if(medico == null){
+            throw new Exception("Médico não pode ser nulo. Médico definido como clínico-geral");
+        }
+        this.medico = Medico.medicoValoresPadrao();
     }
 
     public Paciente getPaciente() {
@@ -54,5 +54,13 @@ public class Agenda {
 
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
+    }
+
+    public void mostrar(){
+        System.out.println(">>>>>>>>>>Agenda<<<<<<<<<<<");
+        System.out.println("data:"+ getData());
+        System.out.println("hora:"+ getHora());
+        System.out.println("medico:"+ getMedico());
+        System.out.println("paciente:"+ getPaciente());
     }
 }

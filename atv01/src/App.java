@@ -1,6 +1,9 @@
+import models.Agenda;
 import models.Paciente;
 import models.Medico;
 import models.Recepcionista;
+
+import java.time.LocalDate;
 
 public class App {
     public static void main(String[] args) throws Exception{
@@ -14,11 +17,21 @@ public class App {
                                                     "123", "Masculino", 25, 2);
         teste2.consultarPaciente("10/10/24");
         
-        //Instância de paciente sem parâmetros
+        //instância de paciente sem parâmetros
         Paciente teste3 = new Paciente();
 
         teste.mostrar();
         teste2.mostrar();
         teste3.mostrar();
+
+        //instância de médico valores padrão
+        Medico medicoTeste = Medico.medicoValoresPadrao();
+
+        //teste do método medicoValoresPadrao
+        Agenda agendateste2 = new Agenda(LocalDate.of(2024, 3, 15), "10:00", medicoTeste, teste3 );
+        agendateste2.mostrar();
+
+        Agenda agendateste = new Agenda(LocalDate.of(2024, 3, 15), "10:00", null, teste3 );
+
     }
 }

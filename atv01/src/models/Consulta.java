@@ -13,6 +13,7 @@ public class Consulta {
 
     public Consulta(LocalDate data, String hora, Medico medico,
                     Paciente paciente, String motivo, String historico)
+            throws Exception
     {
         setData(data);
         setHora(hora);
@@ -72,8 +73,11 @@ public class Consulta {
         return medico;
     }
 
-    public void setMedico(Medico medico) {
-        this.medico = medico;
+    public void setMedico(Medico medico) throws Exception {
+        if(medico == null){
+            throw new Exception("Médico não pode ser nulo. Médico definido como clínico-geral");
+        }
+        this.medico = Medico.medicoValoresPadrao();
     }
 
     public Paciente getPaciente() {

@@ -22,6 +22,16 @@ public class Medico
         
     }
 
+    public static Medico medicoValoresPadrao() {
+        Medico novoMedico = new Medico();
+        novoMedico.setNome("Indefinido");
+        novoMedico.setCrm("Indefinido");
+        novoMedico.setTelefone("123123");
+        novoMedico.setEspecialidade("Clínico-geral");
+        novoMedico.setSenha("123456");
+        return novoMedico;
+    }
+
     public void acessar(String senha)
     {
         MetodosComuns.acessar(senha);
