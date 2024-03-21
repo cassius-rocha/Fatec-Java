@@ -57,16 +57,24 @@ public class Consulta {
         return data;
     }
 
-    public void setData(LocalDate data) {
-        this.data = data;
+    public void setData(LocalDate data) throws Exception {
+        if(data.isBefore(LocalDate.now())){
+            throw new Exception("A data da consulta deve ser posterior a hoje.");
+        } else {
+            this.data = data;
+        }
     }
 
     public String getHora() {
         return hora;
     }
 
-    public void setHora(String hora) {
-        this.hora = hora;
+    public void setHora(String hora) throws Exception {
+        if (hora.isEmpty()) {
+            throw new Exception("A hora precisa ser informada.");
+        } else {
+            this.hora = hora;
+        }
     }
 
     public Medico getMedico() {

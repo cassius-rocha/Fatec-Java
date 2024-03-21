@@ -7,8 +7,7 @@ public class Recepcionista
     private String telefone;
     private String senha;
     
-    public Recepcionista(String nome, String cpf, String telefone, String senha)
-    {
+    public Recepcionista(String nome, String cpf, String telefone, String senha) throws Exception {
         setNome(nome);
         setCpf(cpf);
         setTelefone(telefone);
@@ -29,16 +28,24 @@ public class Recepcionista
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNome(String nome) throws Exception {
+        if(nome.isEmpty()) {
+            throw new Exception("Informe o nome.");
+        } else {
+            this.nome = nome;
+        }
     }
 
     public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setCpf(String cpf) throws Exception {
+        if (cpf.isEmpty()) {
+            throw new Exception(("CPF é obrigatório."));
+        } else
+            this.cpf = cpf;
+        }
     }
 
     public String getTelefone() {

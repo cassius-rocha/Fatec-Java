@@ -7,8 +7,7 @@ public class Receita {
     private LocalDate data;
     private String descritivo;
 
-    public Receita(String consulta, LocalDate data, String descritivo)
-    {
+    public Receita(String consulta, LocalDate data, String descritivo) throws Exception{
         setConsulta(consulta);
         setData(data);
         setDescritivo(descritivo);
@@ -41,15 +40,22 @@ public class Receita {
         return data;
     }
 
-    public void setData(LocalDate data) {
-        this.data = data;
+    public void setData(LocalDate data) throws Exception {
+        if (data.isBefore(LocalDate.now())) {
+            throw new Exception("A data deve ser posterior a hoje.");
+        } else
+            this.data = data;
+        }
     }
 
     public String getDescritivo() {
         return descritivo;
     }
 
-    public void setDescritivo(String descritivo) {
-        this.descritivo = descritivo;
-    }
+    public void setDescritivo(String descritivo) throws Exception{
+        if(descritivo.isEmpty()) {
+            throw new Exception("O descritivo da receira precisa ser informado");
+        } else {
+            this.descritivo = descritivo;
+        }
 }

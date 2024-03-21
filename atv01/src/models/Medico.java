@@ -8,8 +8,7 @@ public class Medico
     private String especialidade;
     private String senha;   
 
-    public Medico(String nome, String crm, String telefone, String especialidade, String senha)
-    {
+    public Medico(String nome, String crm, String telefone, String especialidade, String senha) throws Exception{
         setNome(nome);
         setCrm(crm);
         setTelefone(telefone);
@@ -70,7 +69,7 @@ public class Medico
     }
 
     public String getSenha() {
-        return senha;
+        return "**********";
     }
 
     public void setSenha(String senha) {

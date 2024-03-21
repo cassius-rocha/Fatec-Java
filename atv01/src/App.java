@@ -28,10 +28,10 @@ public class App {
         Medico medicoTeste = Medico.medicoValoresPadrao();
 
         //teste do método medicoValoresPadrao
-        Agenda agendateste2 = new Agenda(LocalDate.of(2024, 3, 15), "10:00", medicoTeste, teste3 );
+        Agenda agendateste2 = new Agenda(LocalDate.of(2024, 4, 15), "10:00", medicoTeste, teste3 );
         agendateste2.mostrar();
 
-        Agenda agendateste = new Agenda(LocalDate.of(2024, 3, 15), "10:00", null, teste3 );
-
+        Agenda agendateste = new Agenda(LocalDate.of(2024, 4, 15), "10:00", null, teste3 );
+        agendateste.mostrar();
     }
 }

@@ -50,8 +50,12 @@ public class Paciente
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNome(String nome) throws Exception {
+        if (nome.isEmpty()) {
+            throw new Exception("Informe o nome.");
+        } else {
+            this.nome = nome;
+        }
     }
 
     public String getCpf() {
