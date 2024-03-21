@@ -1,6 +1,8 @@
 package models;
 
-public class Recepcionista 
+import java.util.Scanner;
+
+public class Recepcionista
 {
     private String nome;
     private String cpf;
@@ -19,9 +21,26 @@ public class Recepcionista
         
     }
 
-    public void acessar(String senha)
-    {
-        MetodosComuns.acessar(senha);
+    public void acessar(String senha) {
+        if(MetodosComuns.acessar(senha)) {
+            Scanner entrada = new Scanner(System.in);
+
+            System.out.println("""
+                    Digite
+                    1: marcar consulta
+                    2: cancelar consulta
+                    3: verificar consulta agendada
+                    4: realizar consulta
+                    5: atualizar consulta
+                    """);
+            int opcao = entrada.nextInt();
+
+            switch (opcao) {
+                case 1:
+                    try {
+                        Consulta novaConsulta = Consulta.marcar();
+                    }
+            }
     }
 
     public String getNome() {
@@ -42,7 +61,7 @@ public class Recepcionista
 
     public void setCpf(String cpf) throws Exception {
         if (cpf.isEmpty()) {
-            throw new Exception(("CPF é obrigatório."));
+            throw new Exception("CPF é obrigatório.");
         } else
             this.cpf = cpf;
         }

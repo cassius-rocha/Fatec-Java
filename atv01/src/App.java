@@ -2,8 +2,8 @@ import models.Agenda;
 import models.Paciente;
 import models.Medico;
 import models.Recepcionista;
-
 import java.time.LocalDate;
+import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception{

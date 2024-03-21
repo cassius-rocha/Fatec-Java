@@ -1,7 +1,9 @@
 package models;
 
+import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Scanner;
 
 public class Consulta {
     private LocalDate data;
@@ -28,9 +30,24 @@ public class Consulta {
         
     }
 
-    public void marcar()
+    public static Consulta marcar() throws Exception
     {
+        Consulta novaConsulta = new Consulta();
+        Scanner entrada = new Scanner(System.in);
 
+        System.out.println("Insira a data da consulta (AAAA-MM-DD):\n");
+        String entradaStr = entrada.nextLine();
+        LocalDate data = LocalDate.parse(entradaStr);
+        novaConsulta.setData(data);
+
+        System.out.println("Insira a hora da consulta:\n");
+        String hora = entrada.nextLine();
+        novaConsulta.setHora(hora);
+
+        System.out.println("Insira o médico que realizará a consulta:\n");
+        Medico medico = entrada.nextLine();
+        novaConsulta.setMedico(medico);
+        return novaConsulta;
     }
     
     public void cancelar()
@@ -69,13 +86,12 @@ public class Consulta {
         return hora;
     }
 
-    public void setHora(String hora) throws Exception {
-        if (hora.isEmpty()) {
+    public void setHora(String hora) throws Exception{
+        if(hora.isEmpty()){
             throw new Exception("A hora precisa ser informada.");
         } else {
             this.hora = hora;
         }
-    }
 
     public Medico getMedico() {
         return medico;
@@ -92,7 +108,7 @@ public class Consulta {
         return paciente;
     }
 
-    public void setPaciente(Paciente paciente) {
+    public void setPaciente(Paciente paciente)  {
         this.paciente = paciente;
     }
 
