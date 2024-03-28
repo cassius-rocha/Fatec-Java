@@ -2,20 +2,12 @@ package models;
 
 import java.time.LocalDate;
 
-public class Receita {
+public class Receita extends Procedimento{
     private String consulta;
-    private LocalDate data;
-    private String descritivo;
 
     public Receita(String consulta, LocalDate data, String descritivo) throws Exception{
+        super(data, descritivo);
         this.setConsulta(consulta);
-        this.setData(data);
-        this.setDescritivo(descritivo);
-    }
-
-    public Receita()
-    {
-        
     }
 
     public String getConsulta() {
@@ -24,30 +16,6 @@ public class Receita {
 
     public void setConsulta(String consulta) {
         this.consulta = consulta;
-    }
-
-    public LocalDate getData() {
-        return this.data;
-    }
-
-    public void setData(LocalDate data) throws Exception {
-        if (data.isBefore(LocalDate.now())) {
-            throw new Exception("A data da receita deve ser maior q hoje!!");
-        } else {
-            this.data = data;
-        }
-    }
-
-    public String getDescritivo() {
-        return this.descritivo;
-    }
-
-    public void setDescritivo(String descritivo) throws Exception {
-        if (descritivo.isEmpty()) {
-            throw new Exception("O descritivo da receita precisa ser informado!");
-        } else {
-            this.descritivo = descritivo;
-        }
     }
 
     public void mostrar() {

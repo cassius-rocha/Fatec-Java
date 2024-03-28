@@ -3,32 +3,15 @@ package models;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-public class Recepcionista {
-    private String nome;
+public class Recepcionista extends Funcionario{
     private String cpf;
-    private String telefone;
-    private String senha;
 
     public Recepcionista() {
     }
 
     public Recepcionista(String nome, String cpf, String telefone, String senha) throws Exception {
-        this.setNome(nome);
+        super(nome, telefone, senha);
         this.setCpf(cpf);
-        this.setTelefone(telefone);
-        this.setSenha(senha);
-    }
-
-    public String getNome() {
-        return this.nome;
-    }
-
-    public void setNome(String nome) throws Exception {
-        if (nome.isEmpty()) {
-            throw new Exception("Infome o nome da recepcionista!");
-        } else {
-            this.nome = nome;
-        }
     }
 
     public String getCpf() {
@@ -41,22 +24,6 @@ public class Recepcionista {
         } else {
             this.cpf = cpf;
         }
-    }
-
-    public String getTelefone() {
-        return this.telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getSenha() {
-        return "*********";
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
 
     //associação com Paciente

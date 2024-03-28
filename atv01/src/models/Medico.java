@@ -2,37 +2,15 @@ package models;
 
 import java.time.LocalDate;
 
-public class Medico
+public class Medico extends Funcionario
 {
-    private String nome;
     private String crm;
-    private String telefone;
     private String especialidade;
-    private String senha;   
 
     public Medico(String nome, String crm, String telefone, String especialidade, String senha) throws Exception{
-        this.setNome(nome);
+        super(nome, telefone, senha);
         this.setCrm(crm);
-        this.setTelefone(telefone);
         this.setEspecialidade(especialidade);
-        this.setSenha(senha);
-    }
-
-    public Medico()
-    {
-        
-    }
-
-    public String getNome() {
-        return this.nome;
-    }
-
-    public void setNome(String nome) throws Exception {
-        if (nome.isEmpty()) {
-            throw new Exception("Infome o nome do medico!");
-        } else {
-            this.nome = nome;
-        }
     }
 
     public String getCrm() {
@@ -47,13 +25,6 @@ public class Medico
         }
     }
 
-    public String getTelefone() {
-        return this.telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
 
     public String getEspecialidade() {
         return this.especialidade;
@@ -61,14 +32,6 @@ public class Medico
 
     public void setEspecialidade(String especialidade) {
         this.especialidade = especialidade;
-    }
-
-    public String getSenha() {
-        return "************";
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
 
     public void mostrar() {
@@ -80,6 +43,7 @@ public class Medico
         System.out.println("Senha:" + this.getSenha());
     }
 
+    //associação com Receita e Exame
     public void preescrever(Consulta consulta) throws Exception {
         Exame ex1 = new Exame("", LocalDate.now(), "raio x");
         Exame ex2 = new Exame("", LocalDate.now(), "exame de sangue");
