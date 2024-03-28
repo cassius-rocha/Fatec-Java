@@ -8,28 +8,18 @@ public class Receita {
     private String descritivo;
 
     public Receita(String consulta, LocalDate data, String descritivo) throws Exception{
-        setConsulta(consulta);
-        setData(data);
-        setDescritivo(descritivo);
+        this.setConsulta(consulta);
+        this.setData(data);
+        this.setDescritivo(descritivo);
     }
 
     public Receita()
     {
         
     }
-    
-    public void preescrever()
-    {
-
-    }
-
-    public void consultarReceita(String data)
-    {
-        MetodosComuns.consultar(data);
-    }
 
     public String getConsulta() {
-        return consulta;
+        return this.consulta;
     }
 
     public void setConsulta(String consulta) {
@@ -37,25 +27,33 @@ public class Receita {
     }
 
     public LocalDate getData() {
-        return data;
+        return this.data;
     }
 
     public void setData(LocalDate data) throws Exception {
         if (data.isBefore(LocalDate.now())) {
-            throw new Exception("A data deve ser posterior a hoje.");
-        } else
+            throw new Exception("A data da receita deve ser maior q hoje!!");
+        } else {
             this.data = data;
         }
     }
 
     public String getDescritivo() {
-        return descritivo;
+        return this.descritivo;
     }
 
-    public void setDescritivo(String descritivo) throws Exception{
-        if(descritivo.isEmpty()) {
-            throw new Exception("O descritivo da receira precisa ser informado");
+    public void setDescritivo(String descritivo) throws Exception {
+        if (descritivo.isEmpty()) {
+            throw new Exception("O descritivo da receita precisa ser informado!");
         } else {
             this.descritivo = descritivo;
         }
+    }
+
+    public void mostrar() {
+        System.out.println("RECEITA============>>>");
+        System.out.println("consulta:" + this.getConsulta());
+        System.out.println("Data:" + String.valueOf(this.getData()));
+        System.out.println("Descritivo:" + this.getDescritivo());
+    }
 }

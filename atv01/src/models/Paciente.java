@@ -1,73 +1,42 @@
 package models;
 
-public class Paciente 
-{
+public class Paciente {
     private String nome;
-    private String cpf;
     private String telefone;
     private String genero;
     private int idade;
     private int codigo;
 
-    public Paciente() throws Exception{
-        setNome("");
-        setCpf("");
-        setTelefone("");
-        setGenero("");
-        setIdade(10);
-        setCodigo(0);
+    public Paciente() throws Exception {
+        this.setTelefone("");
+        this.setGenero("");
+        this.setCodigo(0);
+        this.setNome("");
+        this.setIdade(0);
     }
 
-    public static Paciente cadastrarPaciente(String nome, String cpf, String telefone,
-                                             String genero, int idade, int codigo) throws Exception {
-        Paciente novoPaciente = new Paciente();
-        novoPaciente.setNome(nome);
-        novoPaciente.setCpf(cpf);
-        novoPaciente.setTelefone(telefone);
-        novoPaciente.setGenero(genero);
-        novoPaciente.setIdade(idade);
-        novoPaciente.setCodigo(codigo);
-        return novoPaciente;
-    }
-
-    public Paciente(String nome, String cpf, String telefone, String genero, int idade, int codigo)
-            throws Exception
-    {
-        setNome(nome);
-        setCpf(cpf);
-        setTelefone(telefone);
-        setGenero(genero);
-        setIdade(idade);
-        setCodigo(codigo);
-    }
-
-    public void consultarPaciente(String data)
-    {
-        MetodosComuns.consultar(data);
+    public Paciente(String nome, String telefone, String genero, int idade, int codigo) throws Exception {
+        this.setNome(nome);
+        this.setTelefone(telefone);
+        this.setGenero(genero);
+        this.setIdade(idade);
+        this.setCodigo(codigo);
     }
 
     public String getNome() {
-        return nome;
+        return this.nome;
     }
 
     public void setNome(String nome) throws Exception {
         if (nome.isEmpty()) {
-            throw new Exception("Informe o nome.");
+            throw new Exception("Infome o nome do paciente");
         } else {
             this.nome = nome;
         }
     }
 
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
     public String getTelefone() {
-        return telefone;
+        return this.telefone;
     }
 
     public void setTelefone(String telefone) {
@@ -75,7 +44,7 @@ public class Paciente
     }
 
     public String getGenero() {
-        return genero;
+        return this.genero;
     }
 
     public void setGenero(String genero) {
@@ -83,35 +52,38 @@ public class Paciente
     }
 
     public int getIdade() {
-        return idade;
+        return this.idade;
     }
 
     public void setIdade(int idade) throws Exception {
-        if(idade < 10 || idade > 80){
-            throw new Exception("Idade inválida, deve ser entre 10 e 80.");
-        } else {
-            this.idade = idade;
-        }
     }
 
-    public int getCodigo() { return codigo; }
+    public int getCodigo() {
+        return this.codigo;
+    }
 
     public void setCodigo(int codigo) {
         try {
             this.codigo = codigo;
-        }
-        catch (Exception err){
-            System.out.println("Informe o código do paciente.");
+        } catch (Exception var3) {
+            System.out.println("Informe o codigo do paciente!");
             this.codigo = 0;
         }
+
     }
 
-    public void mostrar(){
+    public void cadastrar() {
+    }
+
+    public void consultar() {
+    }
+
+    public void mostrar() {
         System.out.println(">>>>>>>>>>Paciente<<<<<<<<<<<");
-        System.out.println("codigo:"+ getCodigo());
-        System.out.println("nome:"+ getNome());
-        System.out.println("idade:"+ getIdade());
-        System.out.println("genero:"+ getGenero());
-        System.out.println("telefone:"+ getTelefone());
+        System.out.println("codigo:" + this.getCodigo());
+        System.out.println("nome:" + this.getNome());
+        System.out.println("idade:" + this.getIdade());
+        System.out.println("genero:" + this.getGenero());
+        System.out.println("telefone:" + this.getTelefone());
     }
 }

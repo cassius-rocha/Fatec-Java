@@ -3,6 +3,9 @@ package models;
 import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
 
 public class Consulta {
@@ -10,121 +13,126 @@ public class Consulta {
     private String hora;
     private Medico medico;
     private Paciente paciente;
-    private String motivo;
+    private Agenda agenda;
+    private List<Exame> exames = new ArrayList();
+    private List<Receita> receitas = new ArrayList();
     private String historico;
+    private String motivo;
 
-    public Consulta(LocalDate data, String hora, Medico medico,
-                    Paciente paciente, String motivo, String historico)
-            throws Exception
-    {
-        setData(data);
-        setHora(hora);
-        setMedico(medico);
-        setPaciente(paciente);
-        setMotivo(motivo);
-        setHistorico(historico);
+    public Agenda getAgenda() {
+        return this.agenda;
     }
 
-    public Consulta()
-    {
-        
+    public void setAgenda(Agenda agenda) {
+        this.agenda = agenda;
     }
 
-    public static Consulta marcar() throws Exception
-    {
-        Consulta novaConsulta = new Consulta();
-        Scanner entrada = new Scanner(System.in);
-
-        System.out.println("Insira a data da consulta (AAAA-MM-DD):\n");
-        String entradaStr = entrada.nextLine();
-        LocalDate data = LocalDate.parse(entradaStr);
-        novaConsulta.setData(data);
-
-        System.out.println("Insira a hora da consulta:\n");
-        String hora = entrada.nextLine();
-        novaConsulta.setHora(hora);
-
-        System.out.println("Insira o médico que realizará a consulta:\n");
-        Medico medico = entrada.nextLine();
-        novaConsulta.setMedico(medico);
-        return novaConsulta;
-    }
-    
-    public void cancelar()
-    {
-
+    public List<Exame> getExames() {
+        return this.exames;
     }
 
-    public void consultarConsulta(String data)
-    {
-        MetodosComuns.consultar(data);
+    public void setExames(List<Exame> exames) {
+        this.exames = exames;
     }
 
-    public void realizar()
-    {
-
+    public List<Receita> getReceitas() {
+        return this.receitas;
     }
 
-    public void atualizar()
-    {
+    public void setReceitas(List<Receita> receitas) {
+        this.receitas = receitas;
+    }
 
+    public Consulta(LocalDate data, String hora, Medico medico, Paciente paciente, String historico, String motivo) throws Exception {
+        this.setData(data);
+        this.setHora(hora);
+        this.setMedico(medico);
+        this.setPaciente(paciente);
+        this.setHistorico(historico);
+        this.setMotivo(motivo);
     }
 
     public LocalDate getData() {
-        return data;
+        return this.data;
     }
 
     public void setData(LocalDate data) throws Exception {
-        if(data.isBefore(LocalDate.now())){
-            throw new Exception("A data da consulta deve ser posterior a hoje.");
+        if (data.isBefore(LocalDate.now())) {
+            throw new Exception("A data da consulta deve ser maior q hoje!!");
         } else {
             this.data = data;
         }
     }
 
     public String getHora() {
-        return hora;
+        return this.hora;
     }
 
-    public void setHora(String hora) throws Exception{
-        if(hora.isEmpty()){
-            throw new Exception("A hora precisa ser informada.");
+    public void setHora(String hora) throws Exception {
+        if (hora.isEmpty()) {
+            throw new Exception("A hora precisa ser informada !");
         } else {
             this.hora = hora;
         }
-
-    public Medico getMedico() {
-        return medico;
     }
 
-    public void setMedico(Medico medico) throws Exception {
-        if(medico == null){
-            throw new Exception("Médico não pode ser nulo. Médico definido como clínico-geral");
-        }
-        this.medico = Medico.medicoValoresPadrao();
+    public Medico getMedico() {
+        return this.medico;
+    }
+
+    public void setMedico(Medico medico) {
+        this.medico = medico;
     }
 
     public Paciente getPaciente() {
-        return paciente;
+        return this.paciente;
     }
 
-    public void setPaciente(Paciente paciente)  {
+    public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
     }
 
+    public String getHistorico() {
+        return this.historico;
+    }
+
+    public void setHistorico(String historico) {
+        this.historico = historico;
+    }
+
     public String getMotivo() {
-        return motivo;
+        return this.motivo;
     }
 
     public void setMotivo(String motivo) {
         this.motivo = motivo;
     }
 
-    public String getHistorico() {
-        return historico;
+    public void marcar() {
     }
 
-    public void setHistorico(String historico) {
-        this.historico = historico;
+    public void mostrar() {
+        System.out.println("==========>Consulta");
+        System.out.println("Data:" + String.valueOf(this.getData()));
+        System.out.println("Hora:" + this.getHora());
+        this.medico.mostrar();
+        this.paciente.mostrar();
+        this.agenda.mostrar();
+        System.out.println("Motivo:" + this.getMotivo());
+        System.out.println("Historico:" + this.getHistorico());
+        Iterator var1 = this.exames.iterator();
+
+        while(var1.hasNext()) {
+            Exame ex = (Exame)var1.next();
+            ex.mostrar();
+        }
+
+        var1 = this.receitas.iterator();
+
+        while(var1.hasNext()) {
+            Receita re = (Receita)var1.next();
+            re.mostrar();
+        }
+
     }
 }

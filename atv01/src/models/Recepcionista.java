@@ -1,74 +1,50 @@
 package models;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
-public class Recepcionista
-{
+public class Recepcionista {
     private String nome;
     private String cpf;
     private String telefone;
     private String senha;
-    
+
+    public Recepcionista() {
+    }
+
     public Recepcionista(String nome, String cpf, String telefone, String senha) throws Exception {
-        setNome(nome);
-        setCpf(cpf);
-        setTelefone(telefone);
-        setSenha(senha);
-    }
-
-    public Recepcionista()
-    {
-        
-    }
-
-    public void acessar(String senha) {
-        if(MetodosComuns.acessar(senha)) {
-            Scanner entrada = new Scanner(System.in);
-
-            System.out.println("""
-                    Digite
-                    1: marcar consulta
-                    2: cancelar consulta
-                    3: verificar consulta agendada
-                    4: realizar consulta
-                    5: atualizar consulta
-                    """);
-            int opcao = entrada.nextInt();
-
-            switch (opcao) {
-                case 1:
-                    try {
-                        Consulta novaConsulta = Consulta.marcar();
-                    }
-            }
+        this.setNome(nome);
+        this.setCpf(cpf);
+        this.setTelefone(telefone);
+        this.setSenha(senha);
     }
 
     public String getNome() {
-        return nome;
+        return this.nome;
     }
 
     public void setNome(String nome) throws Exception {
-        if(nome.isEmpty()) {
-            throw new Exception("Informe o nome.");
+        if (nome.isEmpty()) {
+            throw new Exception("Infome o nome da recepcionista!");
         } else {
             this.nome = nome;
         }
     }
 
     public String getCpf() {
-        return cpf;
+        return this.cpf;
     }
 
     public void setCpf(String cpf) throws Exception {
         if (cpf.isEmpty()) {
-            throw new Exception("CPF é obrigatório.");
-        } else
+            throw new Exception("Cpf é obrigatório !");
+        } else {
             this.cpf = cpf;
         }
     }
 
     public String getTelefone() {
-        return telefone;
+        return this.telefone;
     }
 
     public void setTelefone(String telefone) {
@@ -76,10 +52,26 @@ public class Recepcionista
     }
 
     public String getSenha() {
-        return senha;
+        return "*********";
     }
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    //associação com Paciente
+    public Paciente gravarNovoPaciente(String nome, int idade, int codigo, String genero, String telefone) throws Exception {
+        Paciente obj = new Paciente(nome, telefone, genero, idade, codigo);
+        obj.cadastrar();
+        obj.mostrar();
+        return obj;
+    }
+
+    //associação com Consulta
+    public Consulta marcarNovaConsulta(LocalDate data, String hora, Medico medico, Paciente paciente) throws Exception {
+        Consulta obj = new Consulta(data, hora, medico, paciente, "", "");
+        obj.marcar();
+        obj.mostrar();
+        return obj;
     }
 }

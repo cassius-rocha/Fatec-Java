@@ -1,37 +1,22 @@
-import models.Agenda;
-import models.Paciente;
-import models.Medico;
-import models.Recepcionista;
+import models.*;
+
+import java.io.PrintStream;
 import java.time.LocalDate;
 import java.util.Scanner;
 
 public class App {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) {
+        try {
+            Recepcionista r1 = new Recepcionista("Maria", "234", "234234", "2234");
+            Paciente p1 = r1.gravarNovoPaciente("marian", 20, 3, "Feminino", "234234");
+            Medico m1 = new Medico("joana", "234", "234234", "orto", "234");
+            Consulta c1 = r1.marcarNovaConsulta(LocalDate.now(), "22:00", m1, p1);
+            m1.preescrever(c1);
+        } catch (Exception var5) {
+            PrintStream var10000 = System.out;
+            String var10001 = String.valueOf(var5.getStackTrace());
+            var10000.println(var10001 + "=>" + var5.getMessage());
+        }
 
-        //instância de paciente com construtor completo
-        Paciente teste = new Paciente("Giovana", "36811658827",
-                                      "123456", "Feminino", 10, 1);
-
-        //instância de paciente com método cadastrarPaciente
-        Paciente teste2 = Paciente.cadastrarPaciente("Carlos", "123123",
-                                                    "123", "Masculino", 25, 2);
-        teste2.consultarPaciente("10/10/24");
-        
-        //instância de paciente sem parâmetros
-        Paciente teste3 = new Paciente();
-
-        teste.mostrar();
-        teste2.mostrar();
-        teste3.mostrar();
-
-        //instância de médico valores padrão
-        Medico medicoTeste = Medico.medicoValoresPadrao();
-
-        //teste do método medicoValoresPadrao
-        Agenda agendateste2 = new Agenda(LocalDate.of(2024, 4, 15), "10:00", medicoTeste, teste3 );
-        agendateste2.mostrar();
-
-        Agenda agendateste = new Agenda(LocalDate.of(2024, 4, 15), "10:00", null, teste3 );
-        agendateste.mostrar();
     }
 }

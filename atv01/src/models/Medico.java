@@ -1,6 +1,8 @@
 package models;
 
-public class Medico 
+import java.time.LocalDate;
+
+public class Medico
 {
     private String nome;
     private String crm;
@@ -9,11 +11,11 @@ public class Medico
     private String senha;   
 
     public Medico(String nome, String crm, String telefone, String especialidade, String senha) throws Exception{
-        setNome(nome);
-        setCrm(crm);
-        setTelefone(telefone);
-        setEspecialidade(especialidade);
-        setSenha(senha);
+        this.setNome(nome);
+        this.setCrm(crm);
+        this.setTelefone(telefone);
+        this.setEspecialidade(especialidade);
+        this.setSenha(senha);
     }
 
     public Medico()
@@ -21,39 +23,32 @@ public class Medico
         
     }
 
-    public static Medico medicoValoresPadrao() {
-        Medico novoMedico = new Medico();
-        novoMedico.setNome("Indefinido");
-        novoMedico.setCrm("Indefinido");
-        novoMedico.setTelefone("123123");
-        novoMedico.setEspecialidade("Clínico-geral");
-        novoMedico.setSenha("123456");
-        return novoMedico;
-    }
-
-    public void acessar(String senha)
-    {
-        MetodosComuns.acessar(senha);
-    }
-
     public String getNome() {
-        return nome;
+        return this.nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNome(String nome) throws Exception {
+        if (nome.isEmpty()) {
+            throw new Exception("Infome o nome do medico!");
+        } else {
+            this.nome = nome;
+        }
     }
 
     public String getCrm() {
-        return crm;
+        return this.crm;
     }
 
-    public void setCrm(String crm) {
-        this.crm = crm;
+    public void setCrm(String crm) throws Exception {
+        if (crm.isEmpty()) {
+            throw new Exception("Infome o crm !");
+        } else {
+            this.crm = crm;
+        }
     }
 
     public String getTelefone() {
-        return telefone;
+        return this.telefone;
     }
 
     public void setTelefone(String telefone) {
@@ -61,7 +56,7 @@ public class Medico
     }
 
     public String getEspecialidade() {
-        return especialidade;
+        return this.especialidade;
     }
 
     public void setEspecialidade(String especialidade) {
@@ -69,10 +64,28 @@ public class Medico
     }
 
     public String getSenha() {
-        return "**********";
+        return "************";
     }
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public void mostrar() {
+        System.out.println("Medico=========>");
+        System.out.println("Nome:" + this.getNome());
+        System.out.println("crm:" + this.getCrm());
+        System.out.println("Telefone:" + this.getTelefone());
+        System.out.println("Especialidade:" + this.getEspecialidade());
+        System.out.println("Senha:" + this.getSenha());
+    }
+
+    public void preescrever(Consulta consulta) throws Exception {
+        Exame ex1 = new Exame("", LocalDate.now(), "raio x");
+        Exame ex2 = new Exame("", LocalDate.now(), "exame de sangue");
+        Receita rc1 = new Receita("", LocalDate.now(), "dipirona");
+        consulta.getExames().add(ex1);
+        consulta.getExames().add(ex2);
+        consulta.getReceitas().add(rc1);
     }
 }
