@@ -8,13 +8,15 @@ public class Medico extends Funcionario
     private String especialidade;
 
     public Medico(String nome, String crm, String telefone, String especialidade, String senha) throws Exception{
-        super(nome, telefone, senha);
-        this.setCrm(crm);
-        this.setEspecialidade(especialidade);
+        setNome(nome);
+        setCrm(crm);
+        setTelefone(telefone);
+        setEspecialidade(especialidade);
+        setSenha(senha);
     }
 
     public String getCrm() {
-        return this.crm;
+        return crm;
     }
 
     public void setCrm(String crm) throws Exception {
@@ -36,11 +38,11 @@ public class Medico extends Funcionario
 
     public void mostrar() {
         System.out.println("Medico=========>");
-        System.out.println("Nome:" + this.getNome());
-        System.out.println("crm:" + this.getCrm());
-        System.out.println("Telefone:" + this.getTelefone());
-        System.out.println("Especialidade:" + this.getEspecialidade());
-        System.out.println("Senha:" + this.getSenha());
+        System.out.println("Nome:" + getNome());
+        System.out.println("crm:" + getCrm());
+        System.out.println("Telefone:" + getTelefone());
+        System.out.println("Especialidade:" + getEspecialidade());
+        System.out.println("Senha:" + getSenha());
     }
 
     //associação com Receita e Exame
@@ -48,6 +50,7 @@ public class Medico extends Funcionario
         Exame ex1 = new Exame("", LocalDate.now(), "raio x");
         Exame ex2 = new Exame("", LocalDate.now(), "exame de sangue");
         Receita rc1 = new Receita("", LocalDate.now(), "dipirona");
+
         consulta.getExames().add(ex1);
         consulta.getExames().add(ex2);
         consulta.getReceitas().add(rc1);

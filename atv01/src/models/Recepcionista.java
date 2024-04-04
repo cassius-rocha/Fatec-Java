@@ -8,10 +8,11 @@ public class Recepcionista extends Funcionario{
 
     public Recepcionista() {
     }
-
     public Recepcionista(String nome, String cpf, String telefone, String senha) throws Exception {
-        super(nome, telefone, senha);
-        this.setCpf(cpf);
+        setNome(nome);
+        setCpf(cpf);
+        setTelefone(telefone);
+        setSenha(senha);
     }
 
     public String getCpf() {

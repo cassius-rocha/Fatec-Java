@@ -12,14 +12,14 @@ public class Agenda {
     }
 
     public Agenda(LocalDate data, String hora, Medico medico, Paciente paciente) throws Exception {
-        this.setData(data);
-        this.setHora(hora);
-        this.setMedico(medico);
-        this.setPaciente(paciente);
+        setData(data);
+        setHora(hora);
+        setMedico(medico);
+        setPaciente(paciente);
     }
 
     public LocalDate getData() {
-        return this.data;
+        return data;
     }
 
     public void setData(LocalDate data) throws Exception {
@@ -31,7 +31,7 @@ public class Agenda {
     }
 
     public String getHora() {
-        return this.hora;
+        return hora;
     }
 
     public void setHora(String hora) throws Exception {
@@ -43,7 +43,7 @@ public class Agenda {
     }
 
     public Medico getMedico() {
-        return this.medico;
+        return medico;
     }
 
     public void setMedico(Medico medico) {
@@ -51,7 +51,7 @@ public class Agenda {
     }
 
     public Paciente getPaciente() {
-        return this.paciente;
+        return paciente;
     }
 
     public void setPaciente(Paciente paciente) {
@@ -62,7 +62,7 @@ public class Agenda {
         System.out.println("Agenda=========>");
         System.out.println("data:" + String.valueOf(this.getData()));
         System.out.println("hora:" + this.getHora());
-        this.medico.mostrar();
-        this.paciente.mostrar();
+        medico.mostrar();
+        paciente.mostrar();
     }
 }

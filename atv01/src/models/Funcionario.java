@@ -1,22 +1,12 @@
 package models;
 
-public class Funcionario {
+public abstract class Funcionario {
     private String nome;
     private String telefone;
     private String senha;
 
-    public Funcionario() {
-
-    }
-
-    public Funcionario(String nome, String telefone, String senha) throws Exception {
-        this.setNome(nome);
-        this.setTelefone(telefone);
-        this.setSenha(senha);
-    }
-
     public String getNome() {
-        return this.nome;
+        return nome;
     }
 
     public void setNome(String nome) throws Exception {
@@ -28,7 +18,7 @@ public class Funcionario {
     }
 
     public String getTelefone() {
-        return this.telefone;
+        return telefone;
     }
 
     public void setTelefone(String telefone) {

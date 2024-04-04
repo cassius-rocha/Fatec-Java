@@ -16,11 +16,11 @@ public class Paciente {
     }
 
     public Paciente(String nome, String telefone, String genero, int idade, int codigo) throws Exception {
-        this.setNome(nome);
-        this.setTelefone(telefone);
-        this.setGenero(genero);
-        this.setIdade(idade);
-        this.setCodigo(codigo);
+        setNome(nome);
+        setTelefone(telefone);
+        setGenero(genero);
+        setIdade(idade);
+        setCodigo(codigo);
     }
 
     public String getNome() {
@@ -36,7 +36,7 @@ public class Paciente {
     }
 
     public String getTelefone() {
-        return this.telefone;
+        return telefone;
     }
 
     public void setTelefone(String telefone) {
@@ -44,7 +44,7 @@ public class Paciente {
     }
 
     public String getGenero() {
-        return this.genero;
+        return genero;
     }
 
     public void setGenero(String genero) {
@@ -52,20 +52,20 @@ public class Paciente {
     }
 
     public int getIdade() {
-        return this.idade;
+        return idade;
     }
 
     public void setIdade(int idade) throws Exception {
     }
 
     public int getCodigo() {
-        return this.codigo;
+        return codigo;
     }
 
     public void setCodigo(int codigo) {
         try {
             this.codigo = codigo;
-        } catch (Exception var3) {
+        } catch (Exception err) {
             System.out.println("Informe o codigo do paciente!");
             this.codigo = 0;
         }
@@ -80,10 +80,10 @@ public class Paciente {
 
     public void mostrar() {
         System.out.println(">>>>>>>>>>Paciente<<<<<<<<<<<");
-        System.out.println("codigo:" + this.getCodigo());
-        System.out.println("nome:" + this.getNome());
-        System.out.println("idade:" + this.getIdade());
-        System.out.println("genero:" + this.getGenero());
-        System.out.println("telefone:" + this.getTelefone());
+        System.out.println("codigo:" + getCodigo());
+        System.out.println("nome:" + getNome());
+        System.out.println("idade:" + getIdade());
+        System.out.println("genero:" + getGenero());
+        System.out.println("telefone:" + getTelefone());
     }
 }

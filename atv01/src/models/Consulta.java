@@ -10,7 +10,6 @@ import java.util.Scanner;
 
 //agregação com Agenda, Exame, Receita, Medico(mãe), Paciente(mãe)
 public class Consulta extends Agenda{
-    private Agenda agenda;
     private List<Exame> exames = new ArrayList();
     private List<Receita> receitas = new ArrayList();
     private String historico;
@@ -18,20 +17,16 @@ public class Consulta extends Agenda{
 
     public Consulta(LocalDate data, String hora, Medico medico, Paciente paciente, String historico, String motivo) throws Exception {
         super(data, hora, medico, paciente);
-        this.setHistorico(historico);
-        this.setMotivo(motivo);
-    }
-
-    public Agenda getAgenda() {
-        return this.agenda;
-    }
-
-    public void setAgenda(Agenda agenda) {
-        this.agenda = agenda;
+        setData(data);
+        setHora(hora);
+        setMedico(medico);
+        setPaciente(paciente);
+        setHistorico(historico);
+        setMotivo(motivo);
     }
 
     public List<Exame> getExames() {
-        return this.exames;
+        return exames;
     }
 
     public void setExames(List<Exame> exames) {
@@ -39,7 +34,7 @@ public class Consulta extends Agenda{
     }
 
     public List<Receita> getReceitas() {
-        return this.receitas;
+        return receitas;
     }
 
     public void setReceitas(List<Receita> receitas) {
@@ -47,7 +42,7 @@ public class Consulta extends Agenda{
     }
 
     public String getHistorico() {
-        return this.historico;
+        return historico;
     }
 
     public void setHistorico(String historico) {
@@ -55,7 +50,7 @@ public class Consulta extends Agenda{
     }
 
     public String getMotivo() {
-        return this.motivo;
+        return motivo;
     }
 
     public void setMotivo(String motivo) {
@@ -69,24 +64,16 @@ public class Consulta extends Agenda{
         System.out.println("==========>Consulta");
         System.out.println("Data:" + String.valueOf(this.getData()));
         System.out.println("Hora:" + this.getHora());
-        this.getMedico().mostrar();
-        this.getPaciente().mostrar();
-        this.agenda.mostrar();
+        getMedico().mostrar();
+        getPaciente().mostrar();
+        super.mostrar();
         System.out.println("Motivo:" + this.getMotivo());
         System.out.println("Historico:" + this.getHistorico());
-        Iterator var1 = this.exames.iterator();
-
-        while(var1.hasNext()) {
-            Exame ex = (Exame)var1.next();
+        for(Exame ex :exames){
             ex.mostrar();
         }
-
-        var1 = this.receitas.iterator();
-
-        while(var1.hasNext()) {
-            Receita re = (Receita)var1.next();
+        for(Receita re :receitas){
             re.mostrar();
         }
-
     }
 }
