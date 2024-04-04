@@ -16,7 +16,6 @@ public class Consulta extends Agenda{
     private String motivo;
 
     public Consulta(LocalDate data, String hora, Medico medico, Paciente paciente, String historico, String motivo) throws Exception {
-        super(data, hora, medico, paciente);
         setData(data);
         setHora(hora);
         setMedico(medico);
@@ -66,7 +65,6 @@ public class Consulta extends Agenda{
         System.out.println("Hora:" + this.getHora());
         getMedico().mostrar();
         getPaciente().mostrar();
-        super.mostrar();
         System.out.println("Motivo:" + this.getMotivo());
         System.out.println("Historico:" + this.getHistorico());
         for(Exame ex :exames){

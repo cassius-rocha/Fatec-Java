@@ -10,10 +10,10 @@ public class Receita extends Procedimento{
         setDescritivo(descritivo);
     }
 
+    @Override
     public void mostrar() {
         System.out.println("RECEITA============>>>");
-        System.out.println("consulta:" + getConsulta());
-        System.out.println("Data:" + getData());
-        System.out.println("Descritivo:" + getDescritivo());
+        System.out.println("Data:"+getData());
+        System.out.println("Descritivo:"+getDescritivo());
     }
 }

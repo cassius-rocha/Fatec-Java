@@ -1,7 +1,6 @@
 package models;
 
 import java.time.LocalDate;
-import java.util.Scanner;
 
 public class Recepcionista extends Funcionario{
     private String cpf;
@@ -25,6 +24,12 @@ public class Recepcionista extends Funcionario{
         } else {
             this.cpf = cpf;
         }
+    }
+
+    @Override
+    public void calcularSalario(float salarioBruto) {
+        float salario = (float) ((salarioBruto + 100.0f) * 0.9f);
+        System.out.println("Salário líquido: " + salario);
     }
 
     //associação com Paciente

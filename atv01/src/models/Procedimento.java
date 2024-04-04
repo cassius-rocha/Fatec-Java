@@ -11,7 +11,7 @@ public abstract class Procedimento {
         return consulta;
     }
 
-    public String setConsulta(String consulta) {
+    public void setConsulta(String consulta) {
         this.consulta = consulta;
     }
 
@@ -37,5 +37,11 @@ public abstract class Procedimento {
         } else {
             this.descritivo = descritivo;
         }
+    }
+
+    public void mostrar() {
+        System.out.println("consulta:"+ getConsulta());
+        System.out.println("Data:"+getData());
+        System.out.println("Descritivo:"+getDescritivo());
     }
 }

@@ -55,4 +55,10 @@ public class Medico extends Funcionario
         consulta.getExames().add(ex2);
         consulta.getReceitas().add(rc1);
     }
+
+    @Override
+    public void calcularSalario(float salarioBruto) {
+        float salario = (float) ((salarioBruto + 200.0f) * 0.9f);
+        System.out.println("Salário líquido: " + salario);
+    }
 }

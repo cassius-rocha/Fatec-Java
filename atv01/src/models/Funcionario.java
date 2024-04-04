@@ -5,6 +5,8 @@ public abstract class Funcionario {
     private String telefone;
     private String senha;
 
+    public abstract void calcularSalario(float salarioBruto);
+
     public String getNome() {
         return nome;
     }
@@ -32,4 +34,5 @@ public abstract class Funcionario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
 }

@@ -2,21 +2,11 @@ package models;
 
 import java.time.LocalDate;
 
-public class Agenda {
+public abstract class Agenda {
     private LocalDate data;
     private String hora;
     private Medico medico;
     private Paciente paciente;
-
-    public Agenda() {
-    }
-
-    public Agenda(LocalDate data, String hora, Medico medico, Paciente paciente) throws Exception {
-        setData(data);
-        setHora(hora);
-        setMedico(medico);
-        setPaciente(paciente);
-    }
 
     public LocalDate getData() {
         return data;
@@ -58,11 +48,5 @@ public class Agenda {
         this.paciente = paciente;
     }
 
-    public void mostrar() {
-        System.out.println("Agenda=========>");
-        System.out.println("data:" + String.valueOf(this.getData()));
-        System.out.println("hora:" + this.getHora());
-        medico.mostrar();
-        paciente.mostrar();
-    }
+    public abstract void mostrar();
 }
